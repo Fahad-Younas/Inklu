@@ -37,14 +37,16 @@ const grid = document.getElementById("grid");
 if (grid) {
   const q = document.getElementById("q"), empty = document.getElementById("empty"),
     dlg = document.getElementById("modal"), body = document.getElementById("m-body");
+  const search = document.getElementById("search"), featuredOnly = grid.dataset.featured === "1";
 
   const card = (p, i) => `<li><button class="card" type="button" data-i="${i}" aria-haspopup="dialog"><span class="thumb"><img src="${p.img}" alt="" loading="lazy" onerror="this.remove()"></span><span class="card-name">${p.name}</span><span class="card-desc">${p.desc}</span><span class="card-score">Accessibility score: ${p.ev ? p.ev.pct + "%" : "Pending"}</span></button></li>`;
 
   function render() {
-    const t = q.value.trim().toLowerCase();
-    const list = PLACES.map((p, i) => [p, i]).filter(([p]) => (p.name + " " + p.desc).toLowerCase().includes(t));
+    const t = q ? q.value.trim().toLowerCase() : "";
+    const list = PLACES.map((p, i) => [p, i]).filter(([p]) =>
+      (!featuredOnly || p.ev) && (p.name + " " + p.desc).toLowerCase().includes(t));
     grid.innerHTML = list.map(([p, i]) => card(p, i)).join("");
-    empty.hidden = list.length > 0;
+    if (empty) empty.hidden = list.length > 0;
   }
 
   function openPlace(i) {
@@ -59,8 +61,11 @@ if (grid) {
     document.body.style.overflow = "hidden";
   }
 
-  document.getElementById("search").addEventListener("submit", e => e.preventDefault());
-  q.addEventListener("input", render);
+  if (q) {
+    q.value = new URLSearchParams(window.location.search).get("q") || "";
+    q.addEventListener("input", render);
+  }
+  if (search) search.addEventListener("submit", e => e.preventDefault());
   grid.addEventListener("click", e => { const b = e.target.closest(".card"); if (b) openPlace(+b.dataset.i); });
   dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
   dlg.querySelector(".close").addEventListener("click", () => dlg.close());
