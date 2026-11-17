@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>INKLU – Find accessible places</title>
+<title>INKLU – Know before you go</title>
+<meta name="description" content="INKLU audits places in person and gives each one a clear accessibility score for people with disabilities.">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -11,23 +12,73 @@
 <a class="skip" href="#main">Skip to content</a>
 <header><div class="wrap">
   <a class="brand" href="index.html"><img class="logo" src="inklu%20logo.png" alt="">INKLU</a>
-  <nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="product.html">Product</a></nav>
+  <nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="places.html">Places</a><a href="about.html">About</a><a href="product.html">Method</a></nav>
 </div></header>
 
 <main id="main" class="wrap">
-  <section class="hero">
-    <h1>Find places that welcome everyone</h1>
-    <p>Search places and see how accessible they are for people with disabilities.</p>
+  <section class="hero2">
+    <div>
+      <h1>Know before you go.</h1>
+      <p>INKLU visits places in person and gives each one a clear accessibility score, so people with disabilities can plan with confidence.</p>
+      <form action="places.html" method="get" role="search">
+        <label for="q" class="skip">Search places</label>
+        <input id="q" name="q" type="search" placeholder="Search a museum, park or restaurant" autocomplete="off">
+        <button type="submit" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+      </form>
+      <div class="btns"><a class="btn" href="places.html">Browse all places</a><a class="btn o" href="product.html">How scoring works</a></div>
+    </div>
+    <aside class="key" aria-labelledby="key-h">
+      <h2 id="key-h">Every place gets one of four ratings</h2>
+      <ul>
+        <li><span>85–100%</span><span class="chip r0">Fully accessible</span></li>
+        <li><span>65–84%</span><span class="chip r1">Mostly accessible</span></li>
+        <li><span>40–64%</span><span class="chip r2">Partly accessible</span></li>
+        <li><span>Below 40%</span><span class="chip r3">Limited access</span></li>
+      </ul>
+      <small>Score = Yes ÷ (Yes + No) × 100</small>
+    </aside>
   </section>
-  <div class="search-sticky">
-    <form id="search" role="search">
-      <label for="q" class="skip">Search places</label>
-      <input id="q" type="search" placeholder="Search places" autocomplete="off">
-      <button type="submit" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
-    </form>
-  </div>
-  <ul id="grid" class="grid"></ul>
-  <p id="empty" class="empty" role="status" hidden>No places match your search. Try a different name.</p>
+
+  <section class="stats" aria-label="INKLU in numbers">
+    <div><b>30</b>checks at every place</div>
+    <div><b>5</b>areas of access</div>
+    <div><b>2</b>auditors per visit</div>
+    <div><b id="n-audited">6</b>places audited so far</div>
+  </section>
+
+  <section class="sec">
+    <h2>How INKLU works</h2>
+    <p>Three steps from “Is it accessible?” to a clear answer.</p>
+    <div class="cols">
+      <div class="box"><span class="n">1</span><h3>Search a place</h3><p>Type a name or browse the list of audited places.</p></div>
+      <div class="box"><span class="n">2</span><h3>Read the score</h3><p>Each place has a percentage and a rating, from Fully accessible to Limited access.</p></div>
+      <div class="box"><span class="n">3</span><h3>Check the details</h3><p>Open a place to see every check, area by area, so you know what to expect at the door.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Places we’ve audited</h2>
+    <p>Open a card to see the full breakdown for that place.</p>
+    <ul id="grid" class="grid" data-featured="1"></ul>
+    <p id="empty" class="empty" role="status" hidden>No places match your search. Try a different name.</p>
+    <a class="btn o" href="places.html">See all places</a>
+  </section>
+
+  <section class="sec">
+    <h2>Built for how people actually get around</h2>
+    <p>The same 30 checks cover what matters to different visitors.</p>
+    <div class="cols">
+      <div class="box"><h3>Wheelchair and mobility aid users</h3><p>Step-free entrances, ramps, lifts, door widths and accessible toilets.</p></div>
+      <div class="box"><h3>People with low vision</h3><p>High-contrast signs, information in more than one format and staff who offer help.</p></div>
+      <div class="box"><h3>Families and older adults</h3><p>Rest points, seating, parking close to the entrance and a safe drop-off.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Plan your next visit with confidence</h2>
+    <p>Search every audited place on INKLU and see exactly what to expect.</p>
+    <a class="btn" href="places.html">Explore places</a>
+  </section>
 </main>
 
 <dialog id="modal" aria-labelledby="m-title">
