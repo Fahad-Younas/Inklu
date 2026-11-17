@@ -132,6 +132,175 @@ nav a[aria-current] {
     color: var(--ink2)
 }
 
+.hero2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, .8fr);
+    align-items: center;
+    gap: 48px;
+    padding: 64px 0 48px
+}
+
+.hero2 h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    max-width: 640px
+}
+
+.hero2 p {
+    max-width: 620px;
+    margin: 18px 0 24px;
+    color: var(--ink2)
+}
+
+.hero2 form {
+    margin: 0 0 18px;
+    max-width: 560px
+}
+
+.key {
+    padding: 26px;
+    background: #fff;
+    border: 1px solid var(--sand);
+    border-radius: var(--r)
+}
+
+.key h2 {
+    font-size: 1.3rem;
+    margin-bottom: 16px
+}
+
+.key ul {
+    list-style: none;
+    padding: 0
+}
+
+.key li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-top: 1px solid var(--sand);
+    font-size: .9rem
+}
+
+.key small {
+    display: block;
+    margin-top: 12px;
+    color: var(--ink2)
+}
+
+.btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 10px 20px;
+    border: 2px solid var(--clay);
+    border-radius: 99px;
+    background: var(--clay);
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, color .2s, transform .2s
+}
+
+.btn:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bg);
+    transform: translateY(-2px)
+}
+
+.btn.o {
+    background: transparent;
+    border-color: var(--ink);
+    color: var(--ink)
+}
+
+.btn.o:hover {
+    background: var(--ink);
+    color: var(--bg)
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 22px;
+    background: var(--sand);
+    border-radius: var(--r)
+}
+
+.stats div {
+    display: flex;
+    flex-direction: column;
+    color: var(--ink2);
+    font-size: .9rem
+}
+
+.stats b {
+    color: var(--ink);
+    font: 700 1.8rem/1.2 Lora, Georgia, serif
+}
+
+.sec {
+    margin: 64px 0
+}
+
+.sec h2,
+.cta h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem)
+}
+
+.sec > p,
+.cta p {
+    margin: 10px 0 24px;
+    color: var(--ink2)
+}
+
+.sec .grid {
+    margin: 24px 0
+}
+
+.sec > .btn {
+    margin-top: 4px
+}
+
+.box .n {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    background: var(--sand);
+    font-weight: 700
+}
+
+.cta {
+    margin: 72px 0;
+    padding: clamp(28px, 6vw, 56px);
+    border-radius: var(--r);
+    background: var(--ink);
+    color: var(--bg);
+    text-align: center
+}
+
+.cta p {
+    color: #e8e6dc
+}
+
+.cta .btn {
+    background: var(--clay);
+    color: var(--ink)
+}
+
 form {
     display: flex;
     max-width: 520px;
@@ -200,11 +369,38 @@ form button:hover {
     .grid {
         grid-template-columns: repeat(2, 1fr)
     }
+
+    .hero2 {
+        grid-template-columns: 1fr;
+        gap: 28px
+    }
 }
 
 @media(max-width:580px) {
     .grid {
         grid-template-columns: 1fr
+    }
+
+    .hero2 {
+        padding: 44px 0 32px
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px
+    }
+
+    .key {
+        padding: 20px
+    }
+
+    .key li {
+        gap: 6px;
+        font-size: .82rem
+    }
+
+    .btns .btn {
+        flex: 1 1 100%
     }
 }
 
